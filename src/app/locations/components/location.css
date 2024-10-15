@@ -1,0 +1,57 @@
+.program img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.program {
+  flex-basis: 31%;
+  position: relative;
+  background: hsl(var(--card));
+  border-radius: 11px;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  color: hsl(var(--card-foreground));
+}
+
+.caption {
+  border-radius: 10px;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(50deg, rgba(158, 54, 6, 0.1), rgba(158, 54, 6, 0.2));
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: left;
+  padding-left: 30px;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.caption img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.caption p {
+  letter-spacing: 0.05rem;
+  /* letter-spacing: 0.025rem; */
+}
+
+.program:hover .caption {
+  opacity: 1;
+  padding-top: 0;
+}
+/* ----------  media query  ---------- */
+
+@media (max-width: 450px) {
+  .program {
+    flex-basis: 100%;
+    margin: 20px;
+  }
+}
