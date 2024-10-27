@@ -18,7 +18,7 @@
   .about h3 {
     font-weight: 600;
     font-size: 16px;
-    color: #9a6324;
+    color: hsl(var(--primary-foreground-secondary));
   }
   .about h2 {
     font-size: 25px;

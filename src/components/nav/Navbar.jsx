@@ -42,26 +42,51 @@ const MainNavbar = () => {
       </Link>
       <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
         <li>
-          <Link href='/'>Home</Link>
+          <Link
+            href={`/`}
+            className="hover:text-black/65"
+            >
+            Home
+          </Link>
         </li>
         <li>
-          <Link href='/locations'>Locations</Link>
+          <Link 
+            href='/locations'
+            className='hover:text-black/65'
+            >
+            Locations
+          </Link>
         </li>
         {authenticated && (
           <li>
-            <Link href={`/locations/${session.user.locationId}`}>My Marae</Link>
+            <Link 
+              href={`/locations/${session.user.locationId}`}
+              className="hover:text-black/65"
+            >
+            My Marae
+            </Link>
           </li>
         )}
         <li>
-          <Link href='/about-us'>About us</Link>
+          <Link 
+            href='/about-us'
+            className="hover:text-black/65"
+            >
+            About us
+          </Link>
         </li>
         <li>
-          <Link href='/contact'>Contact us</Link>
+          <Link 
+            href='/contact'
+            className="hover:text-black/65"
+            >
+            Contact us
+          </Link>
         </li>
         <li>
           <Button
             onClick={handleAuthentication}
-            className='btn hover:text-white'
+            className='btn bg-white hover:bg-black/25 text-black hover:text-white'
           >
             {authenticated ? 'Sign out' : 'Log in'}
           </Button>

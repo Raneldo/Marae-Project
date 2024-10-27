@@ -36,7 +36,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <section className="mt-28">
       <Title subtitle="Contact us" title="Get in Touch" />
       <div className="contact">
         <div className="contact-col">
@@ -88,14 +88,14 @@ const Contact = () => {
               placeholder="Enter your message"
               required
             ></textarea>
-            <button type="submit" className="btn dark-btn">
+            <button type="submit" className="btn bg-primary text-white hover:bg-black/25 hover:text-black">
               Submit now <Image src={white_arrow} alt="" />
             </button>
           </form>
           <span>{result}</span>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

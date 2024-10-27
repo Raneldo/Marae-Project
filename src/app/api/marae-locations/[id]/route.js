@@ -30,6 +30,8 @@ export async function GET(req, { params }) {
     );
   }
 
+  console.log()
+
   try {
     const locations = await db.locations.findUnique({
       where: { LocationID: locationId }

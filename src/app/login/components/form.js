@@ -37,12 +37,12 @@ export default function LoginForm() {
     const newErrors = { username: "", password: "" };
 
     if (formData.username.length < 2) {
-      newErrors.username = "Username must be at least 2 characters";
+      newErrors.username = "Username and Password Incorrect";
       isValid = false;
     }
 
     if (formData.username.length < 4) {
-      newErrors.password = "Password must be at least 4 characters";
+      newErrors.password = "Username and Password Incorrect";
       isValid = false;
     }
 
@@ -62,11 +62,11 @@ export default function LoginForm() {
       if (result?.error) {
         console.error("Error signing in\n", result.error);
         setErrors({
-          username: "Incorrect username",
-          password: "Incorrect Password",
+          username: "Username and Password Incorrect",
+          password: "Username and Password Incorrect",
         });
       } else {
-        console.log("User successfully authorized");
+        console.log("User successfully authorised");
       }
     }
   };
@@ -74,32 +74,28 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border border-gray-300 w-[500px] rounded px-6 py-4 mx-auto text-start space-y-4"
+      className="border border-gray-300 max-w-[500px] w-full rounded px-6 py-4 mx-auto text-start space-y-4"
     >
       <h1>&nbsp;Login</h1>
-      <div className="flex flex-col gap-2 text-start">
+      <div className="flex flex-col gap-1 text-start">
         <Label htmlFor="username" className="">
           &nbsp;Username
         </Label>
         <Input
-          placeholder="example"
+          placeholder=""
           name="username"
           id="username"
           value={formData.username}
           onChange={handleInputChange}
         />
-        {errors.username ? (
-          <p className="text-destructive text-xs">{errors.username}</p>
-        ) : (
-          <p className="text-xs text-gray-600">&nbsp;Input username</p>
-        )}
+        
       </div>
 
-      <div className="flex flex-col gap-2 text-start">
+      <div className="flex flex-col gap-1 text-start">
         <Label htmlFor="password">Password</Label>
         <Input
           type="password"
-          placeholder="*****"
+          placeholder=""
           id="password"
           name="password"
           value={formData.password}
@@ -108,7 +104,7 @@ export default function LoginForm() {
         {errors.password ? (
           <p className="text-destructive text-xs">{errors.password}</p>
         ) : (
-          <p className="text-xs text-gray-600">&nbsp;Input password</p>
+          <p className="text-xs text-gray-600">&nbsp;</p>
         )}
       </div>
       <Button type="submit">Submit</Button>

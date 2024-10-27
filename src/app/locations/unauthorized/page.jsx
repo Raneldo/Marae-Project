@@ -15,7 +15,7 @@ const Main = () => {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      setText('Log in with an account that has the correct authorization')
+      setText('Log in with an account that has the correct authorisation')
       setButtonText('Log Out')
     } else {
       setText('Log in to get access')

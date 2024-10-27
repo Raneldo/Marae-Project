@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import LocationImage from "./components/locations";
 import { Button } from "@/components/ui/button";
+import Title from "@/components/title/Title";
 
 const Locations = () => {
   const [loading, setLoading] = useState(true)
@@ -40,51 +41,51 @@ const Locations = () => {
     return <div className="loader absolute top-1/2 left-1/2"></div>
   }
   return (
-    <section className="mt-36">
-      <h1 id="title" className="text-center text-3xl text-[#9a6324] font-bold">
-        Marae Locations
-      </h1>
-      <h3
-        id="subtitle"
-        className="text-center text-xl text-secondary-foreground font-thin"
-      >
-        Click the marae to see available car parks
-      </h3>
+    <section className="mt-28">
+
+      <Title subtitle="Marae Locations" title="Click the marae to see available car parks" />
+
 
       {/* Filter Section */}
-      <div className="flex justify-center mt-10">
-        <div className="flex flex-row gap-0 mr-4 items-center justify-center">
+      <div className="flex flex-col md:flex-row justify-center mt-10 gap-4 w-full px-4">
+        {/* Search Input + Clear Button */}
+        <div className="flex w-full md:w-auto items-center">
           <input
             type="text"
             placeholder="Search by Marae name..."
-            className="border border-gray-300 rounded-md p-2 rounded-r-none"
+            className="border border-gray-300 rounded-l-md p-2 flex-grow"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <Button
-            className="border-gray-300 rounded-md rounded-l-none border-l-0 h-[42px] py-2 text-secondary-foreground/[0.6]"
+            className="border border-gray-300 rounded-r-md border-l-0 h-[42px] px-4 text-secondary-foreground/[0.6]"
             variant="outline"
             onClick={() => setSearchTerm("")}
           >
-            clear
+            Clear
           </Button>
         </div>
 
-        <select
-          value={regionFilter}
-          onChange={(e) => setRegionFilter(e.target.value)}
-          className="border border-gray-300 rounded-md p-2"
-        >
-          <option value="">All Regions</option>
-          <option value="Northland">Northland</option>
-          <option value="Waikato">Waikato</option>
-          <option value="Wellington">Wellington</option>
-          {/* Add more regions as needed */}
-        </select>
+        {/* Region Dropdown */}
+        <div className="w-full md:w-auto">
+          <select
+            value={regionFilter}
+            onChange={(e) => setRegionFilter(e.target.value)}
+            className="border border-gray-300 rounded-md p-2 w-full"
+          >
+            <option value="">All Regions</option>
+            <option value="Northland">Northland</option>
+            <option value="Auckland">Auckland</option>
+            <option value="Waikato">Waikato</option>
+            <option value="Wellington">Wellington</option>
+          </select>
+        </div>
       </div>
 
+
+
       {/* Locations Grid */}
-      <div className="mt-16 mb-16 grid sm:grid-cols-3 auto-cols-min auto-rows-min gap-4 px-12">
+      <div className="mt-16 mb-16 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-4 md:px-12">
         {filteredLocations.map((loc, idx) => (
           <LocationImage
             key={loc.id + idx}
@@ -96,9 +97,11 @@ const Locations = () => {
             occupied={loc.occupied}
             suburb={loc.suburb}
             region={loc.region}
+            description={loc.description}
           />
         ))}
       </div>
+
     </section>
   );
 };

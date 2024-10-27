@@ -42,6 +42,27 @@
   opacity: 1;
   padding-top: 0;
 }
+
+/* Ensure the select element and its dropdown are properly aligned */
+select {
+  position: relative;
+  display: block;
+  width: 100%; /* Full width on small screens */
+  z-index: 10; /* Ensure it stays above other elements */
+}
+
+/* Ensure dropdown opens properly in mobile */
+select:focus {
+  outline: none;
+}
+
+/* Prevent select options from rendering incorrectly */
+select option {
+  position: relative;
+  z-index: 10;
+}
+
+
 /* ----------  media query  ---------- */
 
 @media (max-width: 450px) {
@@ -52,4 +73,24 @@
     flex-basis: 100%;
     margin: 20px;
   }
+  select {
+    width: auto; /* Reset width on larger screens */
+    margin-top: 0; /* No extra margin */
+  }
+
+  .flex-col {
+    gap: 10px; /* Add some space between stacked elements */
+  }
+  select {
+    width: 100%; /* Full width on small screens */
+  }
 }
+
+@media (min-width: 768px) {
+  /* On larger screens, align elements horizontally */
+  .flex-row {
+    align-items: center;
+    gap: 16px;
+  }
+}
+

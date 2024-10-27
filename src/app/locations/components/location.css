@@ -25,6 +25,7 @@
   display: flex;
   align-items: left;
   padding-left: 30px;
+  padding-right: 30px;
   justify-content: center;
   flex-direction: column;
   color: #fff;
@@ -38,14 +39,8 @@
   margin-bottom: 10px;
 }
 
-.caption p {
-  letter-spacing: 0.05rem;
-  /* letter-spacing: 0.025rem; */
-}
-
 .program:hover .caption {
   opacity: 1;
-  padding-top: 0;
 }
 /* ----------  media query  ---------- */
 
@@ -54,4 +49,9 @@
     flex-basis: 100%;
     margin: 20px;
   }
+  .grid {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
 }
+
+

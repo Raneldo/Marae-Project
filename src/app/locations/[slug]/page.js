@@ -2,13 +2,14 @@
 import { useState, useEffect } from "react";
 import ParkingEventsChart from "./components/ParkingEventsChart";
 import MaraeDataDisplay from "./components/ParkingDataDisplay";
-import MaraeOverview from "./components/MaraeOverview";
 
 const Page = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const [parkingData, setParkingData] = useState([]);
   const [maraeData, setMaraeData] = useState([]);
   const [error, setError] = useState(null);
+
+  console.log("Data:" , parkingData)
 
   useEffect(() => {
     const fetchParkingData = async () => {
@@ -54,18 +55,22 @@ const Page = ({ params }) => {
 
   return (
     <div className="mt-24 ">
-      <header className="text-center mb-8 w-[500px] mx-auto py-6 shadow-lg bg-card border rounded-lg">
-        <h1 className="text-[#9a6324] text-5xl font-bold">{maraeData.Name}</h1>
+      <header className="text-center mb-8 max-w-[600px] mx-auto py-6 px-12 shadow-lg bg-card border rounded-lg">
+        <h1 className="text-primary text-2xl md:text-3xl 2xl:text-4xl font-bold mb-5">{maraeData.Name}</h1>
+        <p className='text-[10px] md:text-base 2xl:text-base text-left'>
+          {maraeData?.Address?.split('|').join(', ')}
+        </p>
+        <p className='text-m text-left font-thin'>
+          Capacity:&nbsp;{maraeData?.Capacity}&nbsp;
+        </p>
       </header>
       <div className="flex flex-col gap-4 ">
-        <MaraeOverview
-          maraeAbout={maraeData}
-          entryAmount={parkingData.length}
-        />
-
         <div className="flex flex-col md:flex-row justify-center gap-4 w-full flex-wrap">
           <ParkingEventsChart data={parkingData} />
-          <MaraeDataDisplay data={parkingData}></MaraeDataDisplay>
+          <MaraeDataDisplay 
+            data={parkingData}
+            maraeName={maraeData.Name}
+          />
         </div>
       </div>
     </div>

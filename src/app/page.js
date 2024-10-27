@@ -1,5 +1,5 @@
 import "./Hero.css";
-import dark_arrow from "@/assets/dark-arrow.png";
+import white_arrow from "@/assets/white-arrow.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,7 +22,7 @@ export default function Home() {
         <button className="btn group hover:bg-primary hover:text-white transition-colors ">
           <Link href="/locations">Explore More</Link>
           <Image
-            src={dark_arrow}
+            src={white_arrow}
             alt=""
             className="group-hover:translate-x-1 transition-transform"
           />

@@ -38,12 +38,16 @@
 }
 
 #marae-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; /* Ensure video covers full width */
+  height: 100%; /* Ensure video covers full height */
+  object-fit: cover; /* Ensures the video scales to cover the entire area */
+  transform: translate(-50%, -50%); /* Centers the video */
+  z-index: -1; /* Send video to the background */
 }
+
 /* ----------  media query  ---------- */
 
 @media (max-width: 450px) {

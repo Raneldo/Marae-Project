@@ -6,6 +6,7 @@ import location_2 from "@/assets/l2.jpeg";
 import location_3 from "@/assets/l3.jpeg";
 
 import db from "@/lib/prisma";
+import { Description } from "@radix-ui/react-dialog";
 
 const image_map = {
   1: location_1,
@@ -42,6 +43,7 @@ export async function GET(req) {
       suburb: location.Suburb,
       region: location.Region,
       img: image_map[idx + 1] || image_map[1],
+      description: location.Description,
     }));
 
     return NextResponse.json(

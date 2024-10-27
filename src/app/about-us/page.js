@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const AboutUs = () => {
     return (
-        <>
+        <section className='mt-28'>
             <Title subtitle="About us" title="Who we are" />
             <div className="about">
 
@@ -14,7 +14,7 @@ const AboutUs = () => {
                 </div>
                 <div className="about-right">
                     <h3>Marae Car Parks</h3>
-                    <h2>Giving Car Park Information To Maraes For All Visitors</h2>
+                    <h2>Giving Car Park Information For All Marae</h2>
                     <p>
                         At Marae Car Parks, we blend the latest in parking technology with the deep traditions of
                         our culture. Our logo features the Manaia, a revered Maori symbol of protection and
@@ -35,7 +35,7 @@ const AboutUs = () => {
                     </p>
                 </div>
             </div>
-        </>
+        </section>
     )
 }
 
